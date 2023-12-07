@@ -1,0 +1,40 @@
+<div class="wrapper">
+  <%= render "shared/header" %>
+    <div class="side-bar">
+      <%= render "shared/side_bar" %>
+    </div>
+    <div class="main">
+      <div class='coach-info'>
+        <h2 class='coaching-title'>
+          コーチング内容詳細
+        </h2>
+        <div class='coaching-detail'>
+          <span>コーチ名　　　　　　　　：<%= @coach.user.nickname %></span><br>
+          <span>コーチの最高ランク　　　：<%= @coach.rank.name %></span><br>
+          <span>キルレート　　　　　　　：<%= @coach.kill_rate %></span><br>
+          <span>キャラクター　　　　　　：<%= @coach.character %></span><br>
+          <span>プレイスタイル　　　　　：<%= @coach.play_style %></span><br>
+          <span>プレイ時間帯　　　　　　：<%= @coach.play_time %></span><br>
+          <span>プラットフォーム　　　　：<%= @coach.play_device %></span><br>
+          <span>コミュニケーションツール：<%= @coach.communication_tool %></span><br>
+          <span>コーチング回数　　　　　：<%= @coach.times_to_teach %>回</span><br>
+          <span>値段　　　　　　　　　　：<%= @coach.price %>円</span><br>
+          <span>生徒のランク上限　　　　：<%= @coach.rank_limit.name %></span><br>
+          <span>アピールポイント　　　　：<%= @coach.appeal_point %></span>
+        </div>
+      </div>
+      
+      <% if current_user == @coach.user %>
+        <%# unless @coach.order.present? %>
+          <%= link_to "コーチ情報の編集", edit_coach_path(@coach), method: :get, class: "coach-red-btn" %>
+          <p class="or-text">or</p>
+          <%= link_to "削除", "#", method: :delete, class:"coach-destroy" %>
+        <%# end %>
+      <% elsif user_signed_in? %>
+        <%# unless @coach.order.present? %>
+        <%= link_to "購入画面に進む", coach_orders_path(@coach), method: :get, class:"coach-red-btn"%>
+        <%# end %>
+      <% end %>
+    </div>
+  <%= render "shared/footer" %>
+</div>

@@ -1,0 +1,75 @@
+.header {
+  background-color: #FAFAFA;
+  height: 100px;
+  width: 100vw;
+  padding: 2vh 5vw;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  position: fixed;
+  top: 0;
+}
+
+.logo {
+  width: 50%;
+  margin-left: 30px;
+}
+
+.matching-icon {
+  position: absolute;
+  top: 10px;
+  width: 15vw;
+}
+
+.nav {
+  display: inline-block;
+  padding: 10px;
+  text-decoration: none;
+  color: #000000;
+  font-size: 18px;
+}
+
+.lists {
+  display: flex;
+  justify-content: space-around;
+}
+
+li {
+  list-style: none;
+}
+
+.user-nickname {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #333333;
+  font-weight: bold;
+}
+
+.new-coach {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #333333;
+}
+
+.logout {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #333333;
+}
+
+.login {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #333333;
+}
+
+.sign-up {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #333333;
+}

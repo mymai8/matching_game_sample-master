@@ -1,0 +1,189 @@
+<div class="wrapper">
+  <%= render "shared/header" %>
+    <div class="side-bar">
+      <%= render "shared/side_bar" %>
+    </div>
+      <%# 購入内容の表示 %>
+      <div class="main">
+        <div class='coach-info'>
+          <h2 class='coaching-title'>
+            コーチング購入内容確認
+          </h2>
+          <div class='coaching-detail'>
+            <span>コーチ名　　　　　　　　：<%= @coach.user.nickname %></span><br>
+            <span>コーチの最高ランク　　　：<%= @coach.rank.name %></span><br>
+            <span>キルレート　　　　　　　：<%= @coach.kill_rate %></span><br>
+            <span>キャラクター　　　　　　：<%= @coach.character %></span><br>
+            <span>プレイスタイル　　　　　：<%= @coach.play_style %></span><br>
+            <span>プレイ時間帯　　　　　　：<%= @coach.play_time %></span><br>
+            <span>プラットフォーム　　　　：<%= @coach.play_device %></span><br>
+            <span>コミュニケーションツール：<%= @coach.communication_tool %></span><br>
+            <span>コーチング回数　　　　　：<%= @coach.times_to_teach %>回</span><br>
+            <span>値段　　　　　　　　　　：<%= @coach.price %>円</span><br>
+            <span>生徒のランク上限　　　　：<%= @coach.rank_limit.name %></span><br>
+            <span>アピールポイント　　　　：<%= @coach.appeal_point %></span>
+          </div>
+        </div>
+      <%# /購入内容の表示 %>
+
+      <%= form_with model: @order_form, url: coach_orders_path(@coach), id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+
+      <%= render 'shared/error_messages', model: f.object %>
+
+      <%# カード情報の入力 %>
+        <div class='credit-card-form'>
+          <h1 class='info-input-haedline'>
+            クレジットカード情報入力
+          </h1>
+          <div class="form-group">
+            <div class='form-text-wrap'>
+              <label class="form-text">カード情報</label>
+              <span class="indispensable">必須</span>
+              <div class='available-card'>
+                <%= image_tag 'card-visa.gif', class: 'card-logo'%>
+                <%= image_tag 'card-mastercard.gif', class: 'card-logo'%>
+                <%= image_tag 'card-jcb.gif', class: 'card-logo'%>
+                <%= image_tag 'card-amex.gif', class: 'card-logo'%>
+              </div>
+            <div id="number-form" class="input-default"></div>
+            </div>
+            
+          </div>
+          <div class="form-group">
+            <div class='form-text-wrap'>
+              <label class="form-text">有効期限</label>
+              <span class="indispensable">必須</span>
+              <div id="expiry-form" class="input-default"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class='form-text-wrap'>
+              <label class="form-text">セキュリティコード</label>
+              <span class="indispensable">必須</span>
+              <div id="cvc-form" class="input-default"></div>
+            </div>
+          </div>
+        </div>
+      <%# /カード情報の入力 %>
+      
+      <%# 購入者の情報入力 %>
+      <%# 生徒のランク %>
+      <div class="student-rank">
+        <div class="weight-bold-text">
+          最高ランク
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:rank_id, Rank.all, :id, :name, {}, {class:"select-box", id:"highest-rank"}) %>
+      </div>
+      <%# /生徒のランク %>
+
+      <%# 使用キャラクター %>
+      <div class="coach-character">
+        <div class="weight-bold-text">
+          使用キャラクター
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="select-character">
+          <% f.label :character %>
+            <%= f.check_box :character, {multiple: true}, "アッシュ", nil %>アッシュ<br>
+            <%= f.check_box :character, {multiple: true}, "オクタン", nil %>オクタン<br>
+            <%= f.check_box :character, {multiple: true}, "カタリスト", nil %>カタリスト<br>
+            <%= f.check_box :character, {multiple: true}, "クリプト", nil %>クリプト<br>
+            <%= f.check_box :character, {multiple: true}, "コースティック", nil %>コースティック<br>
+            <%= f.check_box :character, {multiple: true}, "シア", nil %>シア<br>
+            <%= f.check_box :character, {multiple: true}, "ジブラルタル", nil %>ジブラルタル<br>
+            <%= f.check_box :character, {multiple: true}, "ニューキャッスル", nil %>ニューキャッスル<br>
+            <%= f.check_box :character, {multiple: true}, "バンガロール", nil %>バンガロール<br>
+            <%= f.check_box :character, {multiple: true}, "パスファインダー", nil %>パスファインダー<br>
+            <%= f.check_box :character, {multiple: true}, "ヒューズ", nil %>ヒューズ<br>
+            <%= f.check_box :character, {multiple: true}, "ブラッドハウンド", nil %>ブラッドハウンド<br>
+            <%= f.check_box :character, {multiple: true}, "ホライゾン", nil %>ホライゾン<br>
+            <%= f.check_box :character, {multiple: true}, "マッドマギー", nil %>マッドマギー<br>
+            <%= f.check_box :character, {multiple: true}, "ミラージュ", nil %>ミラージュ<br>
+            <%= f.check_box :character, {multiple: true}, "ライフライン", nil %>ライフライン<br>
+            <%= f.check_box :character, {multiple: true}, "ランパート", nil %>ランパート<br>
+            <%= f.check_box :character, {multiple: true}, "レイス", nil %>レイス<br>
+            <%= f.check_box :character, {multiple: true}, "レヴナント", nil %>レヴナント<br>
+            <%= f.check_box :character, {multiple: true}, "ローバ", nil %>ローバ<br>
+            <%= f.check_box :character, {multiple: true}, "ワットソン", nil %>ワットソン<br>
+            <%= f.check_box :character, {multiple: true}, "ヴァルキリー", nil %>ヴァルキリー<br>
+            <%= f.check_box :character, {multiple: true}, "ヴァンテージ", nil %>ヴァンテージ<br>
+        </div>
+      </div>
+      <%# 使用キャラクター %>
+
+      <%# プレイスタイル %>
+      <div class="play-style">
+        <div class="weight-bold-text">
+          プレイスタイル
+        </div>
+        <%= f.text_area :play_style, class:"play-style-text", id:"play-style", placeholder:"音の鳴る方へ" %>
+      </div>
+      <%# プレイスタイル %>
+
+      <%# プレイ時間帯 %>
+      <div class="play-time">
+        <div class="weight-bold-text">
+          プレイ時間帯
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :play_time, class:"play-time-text", id:"play-time", placeholder:"22時～24時" %>
+      </div>
+      <%# プレイ時間帯 %>
+
+      <%# 使用デバイス %>
+      <div class="play-device">
+        <div class="weight-bold-text">
+          プラットフォーム
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="select-device">
+          <% f.label :play_device %>
+            <%= f.check_box :play_device, {multiple: true}, "PC", nil %>PC<br>
+            <%= f.check_box :play_device, {multiple: true}, "PS4/PS5", nil %>PS4/PS5<br>
+            <%= f.check_box :play_device, {multiple: true}, "Xbox", nil %>Xbox<br>
+            <%= f.check_box :play_device, {multiple: true}, "Switch", nil %>Switch<br>
+            <%= f.check_box :play_device, {multiple: true}, "iOS", nil %>iOS<br>
+            <%= f.check_box :play_device, {multiple: true}, "Android", nil %>Android<br>
+        </div>
+      </div>
+      <%# 使用デバイス %>
+
+      <%# コミュニケーションツール %>
+      <div class="communication-tool">
+        <div class="weight-bold-text">
+          コミュニケーションツール
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="select-tool">
+          <% f.label :communication_tool %>
+            <%= f.check_box :communication_tool, {multiple: true}, "Discord", nil %>Discord<br>
+            <%= f.check_box :communication_tool, {multiple: true}, "Skype", nil %>Skype<br>
+            <%= f.check_box :communication_tool, {multiple: true}, "LINE", nil %>LINE<br>
+            <%= f.check_box :communication_tool, {multiple: true}, "OpenVC", nil %>OpenVC<br>
+            <%= f.check_box :communication_tool, {multiple: true}, "PS4/PS5", nil %>PS4/PS5<br>
+            <%= f.check_box :communication_tool, {multiple: true}, "Switch", nil %>Switch<br>
+        </div>
+      </div>
+      <%# コミュニケーションツール %>
+
+      <%# 目標 %>
+      <div class="goal">
+        <div class="weight-bold-text">
+          目標
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :goal, class:"goal-text", id:"goal", placeholder:"自分に合う感度を見つけたいです", maxlength:"100" %>
+      </div>
+      <%# /目標 %>
+      <%# /購入者の情報入力 %>
+
+      <div class='buy-btn'>
+        <%= f.submit "購入" ,class:"buy-red-btn", id:"button" %>
+        <%=link_to 'やめる', root_path, class:"back-btn" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <%= render "shared/footer" %>
+</div>

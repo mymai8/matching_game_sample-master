@@ -1,0 +1,30 @@
+.side-bar {
+  background-color: #ffe9e0;
+  width: 300px;
+  height: calc(100vh - 100px - 50px);
+  position: fixed;
+  top: 100px;
+  left: 0;
+}
+
+.room-title {
+  color: #000000;
+  font-size: 32px;
+  padding: 30px;
+  justify-content: center;
+}
+
+.rooms {
+  height: calc(100vh - 100px);
+  padding: 0 20px;
+  overflow: hidden scroll;
+}
+
+.room {
+  padding: 20px 30px 40px;
+}
+
+.room-name a {
+  text-decoration: none;
+  color: #000000;
+}

@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <%= render "shared/header" %>
+    <div class="side-bar">
+      <%= render "shared/side_bar" %>
+    </div>
+    <div class="main">
+      <div class="coach-main">
+        <% @coaches.each do |coach| %>
+          <%= link_to coach_path(coach) do %>
+          <div class='coach-info'>
+            <div class='coach-nickname'>
+              <span>コーチ名：<%= coach.user.nickname %></span>
+            </div>
+            <div class='coaching-info'>
+              <span>コーチの最高ランク　　　：<%= coach.rank.name %></span><br>
+              <span>プレイ時間帯　　　　　　：<%= coach.play_time %></span><br>
+              <span>プラットフォーム　　　　：<%= coach.play_device %></span><br>
+              <span>コミュニケーションツール：<%= coach.communication_tool %></span><br>
+              <span>コーチング回数　　　　　：<%= coach.times_to_teach %>回</span><br>
+              <span>値段　　　　　　　　　　：<%= coach.price %>円</span><br>
+              <span>生徒のランク上限　　　　：<%= coach.rank_limit.name %></span><br>
+              <span>アピールポイント　　　　：<%= coach.appeal_point %></span>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <%= render "shared/footer" %>
+</div>

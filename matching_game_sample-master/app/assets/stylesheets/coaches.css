@@ -1,0 +1,178 @@
+.main {
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 100px;
+  left: 300px;
+  height: calc(100vh - 100px - 50px);
+  width: calc(100vw - 300px);
+  padding: 50px;
+  overflow: hidden scroll;
+}
+
+/* 共通 */
+.indispensable {
+  background: #ea352d;
+  margin-left: 8px;
+  padding: 3px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.weight-bold-text {
+  font-weight: bold;
+  min-width: 170px;
+  margin-bottom: 10px;
+}
+
+.select-box {
+  height: 30px;
+  width: 150px;
+  background-color: #f5f5f5;
+  padding-left: 20px;
+  margin-bottom: 5vh;
+}
+
+/* キルレート */
+.kill-rate {
+  height: 30px;
+  width: 150px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ffaf80;
+  font-size: 16px;
+  resize: none;
+  margin-bottom: 5vh;
+}
+
+/* キャラクター */
+.select-character {
+  margin-left: 15px;
+  margin-bottom: 5vh;
+}
+
+/* プレイスタイル */
+.play-style-text {
+  height: 30px;
+  width: 300px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ffaf80;
+  font-size: 16px;
+  resize: none;
+  margin-bottom: 5vh;
+}
+
+/* プレイ時間帯 */
+.play-time-text {
+  height: 30px;
+  width: 300px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ffaf80;
+  font-size: 16px;
+  resize: none;
+  margin-bottom: 5vh;
+}
+
+/* プラットフォーム */
+.select-device {
+  margin-left: 10px;
+  margin-bottom: 5vh;
+}
+
+/* コミュニケーションツール */
+.select-tool {
+  margin-left: 10px;
+  margin-bottom: 5vh;
+}
+
+/* コーチング料金 */
+.price {
+  height: 30px;
+  width: 150px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ffaf80;
+  font-size: 16px;
+  resize: none;
+  margin-bottom: 5vh;
+}
+
+/* コーチング回数 */
+.times-to-teach-text {
+  height: 30px;
+  width: 150px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ffaf80;
+  font-size: 16px;
+  resize: none;
+  margin-bottom: 5vh;
+}
+
+/* 生徒のランク上限 */
+
+/* アピールポイント */
+.appeal-point-text {
+  height: 100px;
+  width: 300px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ffaf80;
+  font-size: 16px;
+  resize: none;
+  margin-bottom: 5vh;
+}
+
+/* 登録ボタン */
+.register-btn {
+  border: 1px solid #ffaf80;
+  background-color: #ffe7dc;
+  border-radius: 4px;
+  height: 30px;
+  width: 100px;
+  padding: 5px;
+}
+
+.back-btn {
+  border: 1px solid #a5a5a5;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  height: 30px;
+  width: 100px;
+  padding: 2px;
+  text-decoration: none;
+  color: black;
+}
+
+
+/* index */
+a {
+  text-decoration: none;
+}
+
+.coach-nickname {
+  color: black;
+  font-size: 24px;
+}
+
+.coaching-info {
+  color: black;
+  padding-left: 24px;
+}
+
+.coach-info {
+  padding: 25px;
+  border-radius: 4px;
+  border: 1px solid #ffaf80;
+  resize: none;
+  margin-bottom: 5vh;
+}
+
+/* show */
+.coaching-detail {
+  color: black;
+  padding-left: 24px;
+}
